@@ -5,3 +5,4 @@ For some reason the node modules didn't got pushed to this repo so you'll have t
 Javascript package manager npm to manually resolve the dependencies.
 oh and get OrbitControls I just got the js file and imported it straight to my project 
 as other attempts to import in a diffrent manner have failed miserebly.
+Sorry for bad english.
