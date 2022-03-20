@@ -1,0 +1,17 @@
+{
+  "name": "sec-project",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "dat.gui": "^0.7.9",
+    "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "troika-three-text": "^0.46.3"
+  }
+}
