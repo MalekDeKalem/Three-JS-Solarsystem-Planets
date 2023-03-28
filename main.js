@@ -1,10 +1,5 @@
-import * as THREE from 'https://unpkg.com/three@0.138.3/build/three.module.js';
-//import * as dat from 'dat.gui';
-import { OrbitControls } from '/home/dorian/Documents/codes/three/OrbitControls.js';
-import {Text} from 'troika-three-text';
-
-
-
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 
 // Dat GUI stuff comes below
@@ -31,20 +26,6 @@ const planetposition = {
 }
 // -127202.5/5
 
-// Font
-
-const myText = new Text();
-
-myText.text = 'Earth';
-myText.fontSize = 1;
-myText.position.set(-1.1, 1, 3);
-myText.color = 0x164ec7;
-myText.font = 'RACESPACEREGULAR.ttf';
-scene.add(myText);
-
-myText.sync();
-
-
 
 
 const planetarray = [0 , planetposition.moonposition, planetposition.marsposition,
@@ -53,125 +34,63 @@ const planetarray = [0 , planetposition.moonposition, planetposition.marspositio
                     planetposition.uranusposition, planetposition.neptunposition
 ]
 
-
+let classnode = document.body.getElementsByClassName("text")[0];
+let text;
 function planetAction(n) {
   switch (n) {
     case 0:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 5);
       controls.target.set(planetarray[n], 0, 5);
       controls.update();
-      myText.text = 'Earth';
-      myText.fontSize = 1;
-      myText.position.set(-1.1, 1, 3);
-      myText.color = 0x164ec7;
-      scene.add(myText);
-      myText.sync();
+        classnode.innerHTML = 'Earth';
       break;
     case 1:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 5);
       controls.target.set(planetarray[n], 0, 5);
       controls.update(); 
-      myText.text = 'Moon';
-      myText.fontSize = 1;
-      myText.position.set(6, 0.7, 1);
-      myText.color = 0x3c3c52;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Moon';
       break;
     case 2:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 5);
       controls.target.set(planetarray[n], 0, 5);
       controls.update();
-      myText.text = 'Mars';
-      myText.fontSize = 1;
-      myText.position.set(-51.2, 0.7, 1.6);
-      myText.color = 0xe8571a;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Mars';
       break;
     case 3:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 5);
       controls.target.set(planetarray[n], 0, 5);
       controls.update();
-      myText.text = 'Venus';
-      myText.fontSize = 1;
-      myText.position.set(23.7, 0.7, 2.9);
-      myText.color = 0xeba10e;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Venus';
       break;
     case 4:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 5);
       controls.target.set(planetarray[n], 0, 5);
       controls.update(); 
-      myText.text = 'Mercury';
-      myText.fontSize = 1;
-      myText.position.set(38.3, 0.7, 1.2);
-      myText.color = 0x193638;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Mercury';
       break;
     case 5:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 50);
       controls.target.set(planetarray[n], 0, 50);
       controls.update();
-      myText.text = 'Jupiter';
-      myText.fontSize = 10;
-      myText.position.set(-215, 5, 33);
-      myText.color = 0xe8be76;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Jupiter';
       break;
     case 6:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 55);
       controls.target.set(planetarray[n], 0, 55);
       controls.update();
-      myText.text = 'Saturn';
-      myText.fontSize = 10;
-      myText.position.set(-415, 5, 30);
-      myText.color = 0xe8be76;
-      scene.add(myText);
-      myText.sync();
-      break;  
+      classnode.innerHTML = 'Saturn';
+      break; 
     case 7:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 30);
       controls.target.set(planetarray[n], 0, 30);
       controls.update();
-      myText.text = 'Uranus';
-      myText.fontSize = 3;
-      myText.position.set(-504.5, 2, 20);
-      myText.color = 0x4bd6b8;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Uranus';
       break; 
     case 8:
-      scene.remove(myText);
-      myText.dispose();
       camera.position.set(planetarray[n], 0, 30);
       controls.target.set(planetarray[n], 0, 30);
       controls.update();
-      myText.text = 'Neptune';
-      myText.fontSize = 3;
-      myText.position.set(-605.5, 2, 20);
-      myText.color = 0x1d70de;
-      scene.add(myText);
-      myText.sync();
+      classnode.innerHTML = 'Neptune';
       break;   
     default:
       camera.position.set(planetarray[n], 0, 30);
@@ -357,7 +276,7 @@ scene.add(sun);
 
 scene.background = bgtexture;
 camera.position.z = 5;
-//controls.update();
+// controls.update();
 
 function animate() {
   requestAnimationFrame( animate );
